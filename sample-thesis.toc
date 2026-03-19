@@ -1,0 +1,33 @@
+\changetocdepth {2}
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\MakeUppercase []{Title}}{i}{Doc-Start}%
+\contentsline {chapter}{\MakeTextUppercase []{Declaration}}{ii}{chapter*.1}%
+\contentsline {chapter}{\MakeTextUppercase []{Certification}}{iii}{chapter*.2}%
+\contentsline {chapter}{\MakeTextUppercase []{Acknowledgement}}{iv}{chapter*.3}%
+\contentsline {chapter}{\MakeTextUppercase []{Abstract}}{v}{chapter*.4}%
+\contentsline {chapter}{\MakeTextUppercase []{\emph {Abstrak}}}{vi}{chapter*.5}%
+\contentsline {chapter}{LIST OF CONTENTS}{vii}{section*.6}%
+\contentsline {chapter}{LIST OF TABLES}{ix}{section*.7}%
+\contentsline {chapter}{LIST OF FIGURES}{x}{section*.8}%
+\contentsline {chapter}{LIST OF APPENDICES}{xi}{section*.9}%
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introduction}}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivations}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Statement of Problem}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Statement of Objectives}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Proposed Methodology}{3}{section.1.4}%
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Literature Review}}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Foundation and Theories of Visualization and Visual Analytics}{6}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Information Visualization and Visual Analytics}{6}{subsection.2.1.1}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Methodology}}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Problem Characterization and Abstraction for MOOC Analytics}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Problem Characterization and Abstraction}{9}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {a.}Expert Interview}{10}{subsubsection.3.1.1.1}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Results and Discussions}}{12}{chapter.4}%
+\contentsline {section}{\numberline {4.1}User Case Study Results}{12}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}User Cognition on Overview View}{12}{subsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {a.}Identify}{13}{subsubsection.4.1.1.1}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusions and Future Works}}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Aim and Objectives Achievement}{14}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Investigate the recent visual analytics designs and applications to identify current design gap}{14}{subsection.5.1.1}%
+\contentsline {chapter}{\textbf {REFERENCES}}{15}{section*.10}%
+\changetocdepth {0}

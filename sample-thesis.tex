@@ -1,0 +1,76 @@
+%!TEX ROOT=sample-thesis.tex
+%!TEX PROGRAM=xelatex
+
+% Sample thesis using FCIthesis.cls
+% Developed by Jackel Chew (jackelchew93@ums.edu.my)
+
+\documentclass[microtype]{FCIthesis}
+    
+% Load any other packages you need here
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{nameref}
+
+% Information about your thesis
+\title{VISUAL ANALYTIC DESIGN FOR MASSIVELY OPEN ONLINE COURSES (MOOCS)}
+\author{MOHAMMAD FADHLI BIN ASLI}
+\matric{DI1711003T}
+\degree{DOCTOR OF PHILOSOPHY}
+\studyfield{INFORMATION TECHNOLOGY}
+\faculty{FACULTY OF COMPUTING AND INFORMATICS}
+\submissionyear{2021}
+\vivadate{23 March 2021}
+
+\begin{document}
+\frontmatter
+
+% Generates the cover page, a blank page, and then the title page
+\makecoverandtitlepage
+
+% Candidate's Declaration (remember to sign!)
+\makedeclaration{5 July 2021}
+
+% Supervisor's Declaration (remember to sign!)
+\begin{SVdeclaration}
+\member{Main Supervisor}{Dr. Muzaffar Hamzah}
+\member{Co-Supervisor}{Assoc. Prof. Dr. Ag Asri Ag Ibrahim}
+\end{SVdeclaration}
+
+% Acknowledgement
+\input{acknowledgement}
+
+% English and Malay abstracts
+\inputEnAbstract{sample-abstract}
+\inputMsAbstract{sample-abstrak}
+
+% List of Contents
+{
+	\clearpage
+	\setstretch{1.5}
+	\tableofcontents\clearpage	% Table of Contents
+	\listoftables\clearpage		% List of Tables
+	\listoffigures\clearpage		% List of Figures
+%	\input{abbrevlist}\clearpage % List of Abbreviations
+%	\input{symbollist}\clearpage	% List of Symbols
+	\listofappendices\clearpage	% List of Appendices
+}
+
+\mainmatter
+% All Chapters
+\input{sample-chap-1}
+\input{sample-chap-2}
+\input{sample-chap-3}
+\input{sample-chap-4}
+\input{sample-chap-5}
+
+% References
+\printbibliography[heading=customheading]
+
+% Appendix
+\appendix
+\input{sample-appen-1}
+
+\end{document}
