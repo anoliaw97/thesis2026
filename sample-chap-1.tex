@@ -3,61 +3,240 @@
 
 \chapter{Introduction}
 
-This chapter introduces readers to the main purpose of conducting this study. First, motivations and significant events for undertaking this study are explained. Next, the statement of problem and objectives of this study are presented. Furthermore, proposed methodology to achieve the objectives and the research scope are described and characterized. Finally, a description on the layout of this thesis is presented.
-\\[\baselineskip]\indent
-The remainder of this chapter is as follows. Section 1.1 explain the motivations for carrying out this study. Description of the statement of problem for this study is presented in Section 1.2. Section 1.3 then describe the statement of objectives. In Section 1.4, detailed descriptions of methods to achieve the research objectives is presented followed by scopes and limitations in Section 1.5. Finally, this chapter present the layout of this thesis in Section 1.6.
+\section{Introduction}
 
-\section{Motivations}
-Three motives that encourage the study undertaken in this thesis are explained as follows.
-\begin{itemize}
-	\item \textbf{Rise of digitalization and big data calls for digital-capable society.} \\
-Rapid escalation of digitalization and big data were observed over the years that signal the society’s transition into information era. These events call for efforts in supporting digital citizen development in many areas such as healthcare, communication, and education. This thesis refers digital citizen as an individual capable in utilizing information technology in real-world scenario. It was speculated that the deferral in digital citizen development can potentially diminishes society advances \parencite{Carrasco2017}. In order to support this development, improving method for enabling user to gain information and insight from data is considered to be necessary.  
-	\item \textbf{National transition towards Education 4.0 by empowering educational technology adaptation.} \\
-Malaysia is now embracing digital technology as part of the fourth Industrial Revolution (IR4.0), intensifying efforts on Education 4.0 advances. Education 4.0 is defined as the use of technology in teaching and learning context \parencite{Dunwill2016}. Transforming education is one of IR4.0 challenges and the Malaysia Education Blueprint for Higher Education was proposed to address this challenge. The national blueprint emphasizes on advancing online learning platform and resources such as e-Learning and MOOC. Massive open online course (MOOC) is introduced and implemented in Malaysia on 2013 \parencite{Ally2019}. Literature characterize Malaysian MOOC as exploratory and most related work were specifically focused on MOOC’s acceptance, perception, and effectiveness \parencite{Ayub2018}. This event highlights the need to empower the readiness for MOOC education transition in Malaysia. Further inaction likely increases the gap in educational technology adaptation between Malaysia and global education.
-	\item \textbf{Limitation of pre-set analytics design hinders instructors in information and insight discovery.} \\
-MOOC’s community is typically comprised of instructors, teaching assistants, and students. Community’s activities in MOOC enrolments and engagement generate large volume of data. These data contain potential insights for instructors in discovering pattern and behavior within their MOOC. Instructors gather these insights in order to improve their course’s contents. MOOC platforms such as Coursera, EdX, and OpenLearning can facilitate instructors with analytics to help their data exploration. However, the pre-set analytics have limitation in presenting information specifically involving large volume of data.
-\end{itemize}
+In machine learning terms, lithology classification is a sequence labelling task that assigns a rock type to every depth sample in a well. This classification process helps identify different rock formations such as sandstone, shale, limestone and other types based on measurements from tools inside the well during drilling operations.
 
-\section{Statement of Problem}
-... 
-\\[\baselineskip]\indent
+A well log is a multivariate time-depth record where each depth step provides numeric features such as density, resistivity and natural gamma emission. These measurements are recorded at various depths and show how rock types change as drilling progresses. The measurements contain various rock properties that help scientists understand the rock layers underground \parencite{Ellis2007}.
 
-
-\section{Statement of Objectives}
-...
-\\[\baselineskip]\indent
-
-\section{Proposed Methodology}
-To achieve the aim and objectives, this study used the following methodology and process as illustrated in Figure \ref{framework}. Each step of research activity is discussed as follows.
+Figure \ref{fig:wireline} gives a visual overview of a standard wireline logging setup with detailed components shown in the caption. The tool shown on the left is the driller. The middle image depicts the wireline logging process with the logging truck and cable feeding the tools into the borehole. The right side presents an example of gamma ray log display showcasing the data captured during the logging process.
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[scale=1]{Fig1.1}
-\caption{Research framework of this study}
-\label{framework} % to give the figure you want to reference a marker
+\includegraphics[width=0.85\textwidth]{wireline}
+\caption[Example of the logging tool setup, wireline logging operation and gamma ray log display]{Example of the logging tool setup (left, courtesy of Schlumberger), the wireline logging operation (middle) and an example of a gamma ray log display (right). Source: \textcite{Mondol2015}}
+\label{fig:wireline}
 \end{figure}
 
-\medskip
+Misidentifying rock types can lead to catastrophic drilling failures, contaminated water supplies or unstable building foundations making accurate lithology classification a critical safety and economic concern. It helps determine where oil and gas reservoirs are located, what mineral deposits might be present, the location of water systems and the stability of land for construction projects \parencite{Tiab2015}.
 
-\begin{enumerate}
-\item A comprehensive literature survey and analysis of the recent visual analytics advances are undertaken to identify the current state of visual analytics designs and applications referring to scholarly digital libraries, particularly Scopus, IEEE Xplore, and ACM DL. This study also examines and classifies recent advances based on applied domains, design features, information-seeking tasks, data properties, data sources, and visualization techniques. The most significant design problems are identified to be addressed in this study.
-\item The highlighted design problems are further investigated and verified its significance by further exploring the visualization design space of visual analytics designs and applications for MOOC data. A systematic analysis on existing MOOC visualization design is carried out by examining the reported analytic tasks, design requirements, data dimensions, visualization, and evaluation method. The resulting review helps elicit the visualization design  
+Before digital logs, geologists relied on laboratory analysis of core samples, a process that can cost about RM~30,000 and delay decisions by several weeks. Core samples are pieces of rock or soil taken directly from underground. However, core sampling is expensive, time-consuming and can only be done at specific depths in the well. Well logs provide continuous data throughout the drilling process but interpreting them remains challenging because the data is indirect and can be influenced by several factors.
+
+Recent studies apply machine learning (ML) and deep learning to well logs yet most approaches still require thousands of expert labels per well, a bottleneck this thesis aims to remove. ML models like Random Forest and Support Vector Machines have shown decent results when trained with labelled data \parencite{Dubois2007}. More advanced deep learning models like Convolutional Neural Networks and Recurrent Neural Networks can automatically learn features from raw well log data and have shown better accuracy \parencite{Zeng2020}. However, both ML and deep learning methods still depend heavily on having large labelled datasets for training.
+
+
+\section{Significance of the Study}
+
+Self-supervised learning tackles the label bottleneck by training on unlabelled logs then fine-tuning on a small expert-labelled set cutting annotation time and cost by an estimated eighty percent \parencite{Romanenkova2022}. SSL is an approach that allows computers to learn useful patterns from data without the need for extensive labelled examples. Instead of relying on experts to label every sample, SSL creates its own training signals by designing tasks where the model learns to predict missing or hidden parts of the data.
+
+A practical workflow first trains an SSL model on thousands of unlabelled logs to capture cross-well patterns then fine-tunes it with a small labelled subset for rock-type prediction. In the case of well logs, SSL can learn general features of geological formations by analysing vast amounts of unlabelled data already available. This reduces dependency on costly and time-consuming labelling processes making the classification process both faster and more scalable.
+
+Applying SSL to lithology could greatly improve how subsurface data are interpreted especially where labelled examples are scarce. By automating the learning process, SSL allows for more accurate and efficient classification of rock types even in areas where labelled data is limited. This can ultimately lead to cost-effective comprehensive analyses that improve resource exploration whether for oil, gas, minerals or water.
+
+This research contributes both theoretical insights into representation learning for geological data and practical solutions for lithology classification in data-constrained environments. The potential to automate processes, reduce costs and improve decision-making in fields like oil exploration, mining and environmental management represents a significant advancement in making geological analyses faster, more scalable and more precise.
+
+
+\section{Formal Problem Definition}
+
+This section formally defines the core algorithmic problem of developing effective self-supervised learning for geological well log sequences. Current self-supervised learning methods for tabular data fail when applied to geological well log sequences due to three fundamental limitations: (1) generic pretext tasks that ignore geological continuity, (2) random masking strategies that break multivariate geological relationships and (3) point-wise architectures that cannot capture spatiotemporal patterns.
+
+The complete algorithmic problem can be formulated as the following optimisation in Equation \eqref{eq:opt}:
+
+\begin{equation}
+\min_{\theta} \mathbb{E}_{X \sim \mathcal{D}_u, \, m \sim f_{\text{mask}}(C)} \left[ \mathcal{L}_{\text{mask}}\!\left(m,\, s_m\!\left(e_{\text{seq}}(\tilde{X})\right)\right) + \alpha \cdot \mathcal{L}_{\text{geo}}\!\left(X,\, s_r\!\left(e_{\text{seq}}(\tilde{X})\right)\right) \right]
+\label{eq:opt}
+\end{equation}
+
+where Table \ref{tab:mathcomp} presents the mathematical components definition.
+
+\begin{table}[hbt!]
+\centering
+\caption{Mathematical Components Definition}
+\label{tab:mathcomp}
+\begin{tabular}{@{} l l l @{}}
+\toprule
+\textbf{Component} & \textbf{Definition} & \textbf{Purpose} \\
+\midrule
+$X \in \mathbb{R}^{T \times d}$ & Well log sequence ($T$ depths, $d$ measurements) & Sequential geological data \\
+$\mathcal{D}_u$ & Unlabelled geological dataset & Self-supervised training data \\
+$f_{\text{mask}}(C): \mathbb{R}^{d \times d} \to \{0,1\}^{T \times d}$ & Feature-aware masking function & Preserves geological correlations \\
+$e_{\text{seq}}: \mathbb{R}^{T \times d} \to \mathbb{R}^{T \times h}$ & Sequential encoder & Captures spatiotemporal patterns \\
+$\mathcal{L}_{\text{geo}}$ & Geological reconstruction loss & Enforces continuity constraints \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\section{Domain Background}
+
+Lithology is the study of rocks' physical and chemical characteristics including their mineral composition, texture and structure \parencite{Boggs2009}. Understanding rock types is essential because different formations have distinct properties affecting fluid storage, flow characteristics and structural stability.
+
+Well logs are continuous measurements of rock properties recorded as drilling progresses through different geological layers. Each log type measures specific physical properties: Gamma Ray logs detect natural radioactivity which is high in clay-rich shales and low in clean sandstones. Resistivity logs measure electrical resistance which varies with fluid content and rock type. Density logs measure bulk density which changes with porosity and mineral composition. Neutron logs respond to hydrogen content indicating porosity and fluid saturation.
+
+The interpretation process traditionally requires geological expertise to recognise patterns and relationships between different log responses. Geologists analyse combinations of log curves to identify rock types, estimate reservoir quality and predict drilling conditions. This manual interpretation is time-consuming, subjective and requires years of training to master.
+
+Machine learning approaches can automate this interpretation by learning patterns from historical data. However, the geological domain presents unique challenges including complex feature relationships, sequential dependencies and the need for models that respect physical constraints inherent in subsurface formations.
+
+
+\section{Data Context}
+
+This research utilises two standardised publicly available geological datasets to ensure reproducible evaluation and comparison. The primary dataset is the FORCE 2020 Lithology Prediction Dataset created for machine learning competition and containing well-labelled lithological information from the Norwegian Continental Shelf. This dataset includes 98 wells with depth measurements ranging from 1,500 to 5,000 meters and comprehensive well log measurements across multiple lithology classes.
+
+The secondary dataset is the Volve Field Data Set released by Equinor which provides real-world geological data from the North Sea. The Volve dataset serves as an independent test set to evaluate model generalisation across different geological settings and data collection procedures.
+
+These North Sea datasets were selected as appropriate benchmarks for several reasons. First, they represent complex geological environments with multiple lithology types similar to Malaysian reservoirs. Second, the datasets are publicly available enabling reproducible research and fair comparison with other studies. Third, the data quality and documentation standards are high providing reliable ground truth for model evaluation.
+
+The use of North Sea data as a proxy for Malaysian geological applications is justified by similar depositional environments and rock types found in both regions. Both areas contain complex sequences of sandstones, shales and carbonates formed under comparable geological processes. The representation learning capabilities developed on these datasets are expected to transfer effectively to Malaysian subsurface characterisation tasks.
+
+
+\section{Research Gap}
+
+Current research lacks feature-aware self-supervised learning methods specifically designed for long, connected tabular sequences like well logs. Systematic analysis of geological machine learning literature reveals that existing SSL approaches treat well log measurements as independent tabular samples rather than sequential geological data with inherent depth dependencies.
+
+The specific missing piece is the absence of SSL frameworks that can simultaneously handle three critical characteristics of well log sequences. First, these sequences exhibit strong spatial correlations between adjacent depth measurements with correlation coefficients typically exceeding 0.8. Second, multivariate dependencies exist between different log types where gamma ray, resistivity and density measurements provide complementary geological information. Third, sequence lengths vary dramatically from 100 to 10,000 depth points requiring flexible architectures.
+
+Existing SSL methods apply random masking strategies that break the essential relationships between correlated well log measurements. Standard approaches use point-wise processing that ignores the sequential nature of geological formations. No current framework incorporates domain-specific pretext tasks that respect geological continuity constraints fundamental to subsurface interpretation.
+
+This gap prevents effective utilisation of the vast quantities of unlabelled well log data available in geological databases worldwide. The absence of feature-aware SSL methods for connected geological sequences represents a critical barrier to developing cost-effective lithology classification systems that can reduce dependence on expensive expert annotations.
+
+
+\section{Rational for the Proposed Approach}
+
+Self-supervised learning with feature-aware masking and sequential encoders represents the optimal solution to fill the identified research gap. This approach directly addresses the three missing components needed for effective SSL on geological sequences.
+
+Feature-aware masking preserves the critical multivariate relationships between well log measurements that are essential for geological interpretation. Unlike random masking that breaks correlations between gamma ray, resistivity and density logs, intelligent masking strategies maintain these dependencies while still creating challenging reconstruction tasks for representation learning.
+
+Sequential encoders can capture the depth-dependent patterns and geological continuity constraints that characterise subsurface formations. Bidirectional processing allows models to learn from both overlying and underlying geological context. This mirrors how geologists interpret rock sequences by considering stratigraphic relationships and formation transitions.
+
+Self-supervised learning provides the framework to leverage abundant unlabelled well log data while requiring minimal expert annotations. This approach can learn meaningful geological representations from the inherent structure of well log sequences without depending on expensive lithology labels. The learned representations can then be fine-tuned with small amounts of labelled data to achieve practical classification performance.
+
+The convergence of these three components creates a solution uniquely suited to geological sequence data. Feature-aware masking respects physical relationships between measurements. Sequential processing captures stratigraphic patterns. Self-supervised learning exploits data abundance while minimising annotation requirements. This combination offers the best pathway to develop cost-effective lithology classification systems that can operate effectively with limited labelled data.
+
+
+\section{Research Aim}
+
+This research aims to develop and validate a feature-aware self-supervised learning framework for lithology classification that achieves supervised baseline performance while requiring significantly less labelled data and demonstrating robust generalisation across geological datasets.
+
+
+\section{Problem Statement}
+
+Since 2021, fewer than ten papers have applied self-supervised learning to lithology logs leaving key questions about accuracy and transferability unanswered. Current lithology classification methods depend on supervised learning with extensive labelled well log data creating significant annotation costs and time constraints. While self-supervised learning has reduced labelling dependencies by 70--90\% in computer vision and natural language processing, its application to lithology classification remains critically underexplored.
+
+This research addresses three fundamental problems that limit the development of effective SSL frameworks for lithology classification.
+
+\begin{enumerate}[label=\roman*.]
+\item \textbf{Problem 1: Inadequate Pretext Task Design.} Current SSL approaches rely on generic pretext tasks that fail to capture the depth-dependent correlations and geological continuity constraints inherent in well log sequences resulting in poor feature representations for geological data.
+
+\item \textbf{Problem 2: Domain-Agnostic Masking Strategies.} Existing SSL methods lack domain-specific masking strategies that account for the multivariate nature and cross-feature dependencies in geophysical measurements ignoring the unique characteristics of subsurface data.
+
+\item \textbf{Problem 3: Architectural Limitations.} Current SSL architectures are not optimised for the spatiotemporal characteristics of well log data where geological formations exhibit complex patterns of local heterogeneity and regional consistency that require specialised modelling approaches.
 \end{enumerate}
 
-\begin{figure}[hbt!]
-\centering
-\begin{minipage}{0.3\textwidth}
-\centering
-\includegraphics[width=\linewidth]{green}
-\subcaption{First subfigure}
-\end{minipage}
-%
-\hspace{1cm}
-%
-\begin{minipage}{0.3\textwidth}
-\centering
-\includegraphics[width=\linewidth]{school}
-\subcaption{Second subfigure}
-\end{minipage}
-\caption{An example with several subfigures}
-\end{figure}
+These problems collectively result in SSL frameworks that achieve limited performance compared to supervised baselines while failing to leverage the vast amounts of unlabelled well log data available in geological databases.
+
+
+\section{Research Questions}
+
+The research questions of the research are:
+
+\begin{enumerate}[label=\roman*.]
+\item \textbf{RQ1:} To what extent do domain-specific pretext tasks incorporating sequential dependencies and depth-wise correlation patterns achieve improved classification accuracy compared to standard SSL pretext tasks when evaluated on standardised lithology datasets?
+
+\item \textbf{RQ2:} How significantly do feature-aware masking strategies that preserve multivariate dependencies between well log measurements improve training efficiency and classification performance compared to random masking strategies?
+
+\item \textbf{RQ3:} Which encoder architecture demonstrates optimal performance for processing spatiotemporal well log sequences, and what are the quantifiable performance differences in handling geological pattern recognition tasks?
+
+\item \textbf{RQ4:} What measurable improvements in classification accuracy, data efficiency and cross-dataset generalisation does the integrated SSL framework achieve compared to supervised learning baselines across multiple geological datasets?
+\end{enumerate}
+
+
+\section{Research Hypotheses}
+
+The research tests four specific hypotheses:
+
+\begin{enumerate}[label=\roman*.]
+\item \textbf{H1:} Domain-specific pretext tasks that incorporate geological continuity constraints will achieve higher downstream classification accuracy compared to standard masked reconstruction tasks.
+
+\item \textbf{H2:} Feature-aware masking strategies that preserve multivariate dependencies between well log measurements will outperform random masking approaches in classification performance.
+
+\item \textbf{H3:} Sequential encoder architectures will demonstrate superior performance compared to point-wise processing approaches for spatiotemporal well log data.
+
+\item \textbf{H4:} The integrated SSL framework will achieve comparable accuracy to supervised baselines while requiring significantly less labelled training data and demonstrate better cross-dataset generalisation.
+\end{enumerate}
+
+
+\section{Research Objectives}
+
+The main objectives of the research are:
+
+\begin{enumerate}[label=\roman*.]
+\item \textbf{RO1:} To formulate domain-specific pretext tasks that incorporate sequential dependencies and depth-wise correlation patterns, achieving improved lithology classification accuracy compared to standard SSL pretext tasks.
+
+\item \textbf{RO2:} To design feature-aware masking strategies that outperform random masking approaches in lithology classification while preserving critical multivariate dependencies in well log measurements.
+
+\item \textbf{RO3:} To investigate and compare encoder architectures for processing spatiotemporal well log data, identifying the optimal architecture for handling local heterogeneity and regional consistency patterns while quantifying performance differences across different models for lithology classification tasks.
+
+\item \textbf{RO4:} To benchmark the integrated SSL framework against supervised learning baselines, demonstrating improved performance in classification accuracy, data efficiency and cross-dataset generalisation across multiple geological datasets.
+\end{enumerate}
+
+
+\section{Scope of Study}
+
+This research focuses on:
+
+\begin{enumerate}[label=\alph*)]
+\item Using self-supervised deep learning for lithology classification from well log data. It focuses on pretraining models with unlabelled data and fine-tuning them with a smaller set of labelled data.
+
+\item The well log data used comes from publicly available FORCE 2020 and Volve datasets covering 11--12 major rock types.
+
+\item Computational work uses Google Cloud free tier with 2 CPU, 8~GB RAM machines and limited GPU access (NVIDIA T4, under 20 hours monthly). Models must be small (under 10M parameters) due to resource limits.
+
+\item Implementation uses PyTorch with standard libraries, focusing on lightweight model designs that work within hardware constraints.
+
+\item Performance comparison with supervised methods like Random Forest, XGBoost, SVM and simple CNN using accuracy, precision, recall and F1-score metrics.
+
+\item This research focuses only on well log data and excludes seismic data, core samples, or other data types. Large models over 50M parameters are excluded due to computing limits.
+\end{enumerate}
+
+
+\section{Limitations}
+
+This research acknowledges several known constraints and validity threats that affect the scope and generalisability of the findings.
+
+Licence restrictions prevent access to proprietary Malaysian geological data that would provide direct validation of the proposed methods in the target application domain. The research relies on publicly available North Sea datasets from the FORCE 2020 and Volve collections. While these datasets contain appropriate geological analogues with similar depositional environments, direct validation on Malaysian reservoir data requires future industry collaboration.
+
+Hardware limitations constrain the computational scope of the research. Google Cloud free tier access provides only 2 CPU cores, 8~GB RAM and fewer than 20 hours monthly GPU time. These constraints limit model complexity to fewer than 10 million parameters and restrict extensive hyperparameter exploration. The hardware limitations require efficient experimental design and may prevent investigation of larger architectural variants.
+
+The use of public rather than proprietary geological data introduces potential validity threats. Public datasets may not fully represent the complexity and variability of operational geological data used in industry applications. Proprietary datasets often contain additional quality control, specialised log types and detailed geological context that enhance model performance in practical applications.
+
+Temporal constraints from the 24-month research timeline limit the number of experimental iterations and prevent long-term validation studies. The timeline restricts comprehensive ablation studies and detailed sensitivity analysis across all possible hyperparameter combinations.
+
+These limitations are acknowledged while ensuring that the research provides valuable contributions within the defined constraints and establishes a foundation for future expanded investigations with access to proprietary data and enhanced computational resources.
+
+
+\section{Expected Contributions}
+
+This research will deliver four concrete and measurable contributions to the field of geological machine learning.
+
+The primary algorithmic innovation involves developing feature-aware masking strategies specifically designed for well log sequences. This includes correlation-based grouping algorithms that preserve critical relationships between gamma ray, resistivity and density measurements during the self-supervised learning process. The algorithms will be mathematically formulated and empirically validated to demonstrate superior performance compared to random masking approaches.
+
+Complete open-source code implementation will be released including data preprocessing pipelines, self-supervised training frameworks and evaluation protocols. The codebase will provide reproducible implementations of all proposed methods with detailed documentation and example usage. This enables direct comparison with future methods and facilitates practical adoption in geological workflows.
+
+Standardised benchmark splits will be established for the FORCE 2020 and Volve datasets with fixed train/validation/test partitions to ensure fair comparison across different research approaches. The benchmark includes evaluation protocols with statistical significance testing procedures and cross-dataset validation protocols for assessing generalisation capabilities.
+
+Systematic label-efficiency curves will be generated showing SSL framework performance across different percentages of labelled data including 1\%, 5\%, 10\%, 25\%, 50\% and 100\% scenarios. These curves quantify the data efficiency gains achievable through self-supervised pretraining and provide practical guidance for determining optimal labelling strategies in operational geological projects.
+
+These concrete deliverables advance both theoretical understanding of SSL for geological applications and provide practical tools that can immediately reduce lithology classification costs in industry applications while enabling reproducible research in the geological machine learning community.
+
+
+\section{Thesis Organisation}
+
+This thesis proposal is structured to systematically develop and validate the proposed self-supervised learning framework for lithology classification. The current proposal encompasses three foundational chapters.
+
+\textbf{Chapter 1} establishes the research context, formal problem definition and domain background. It identifies the research gap in feature-aware self-supervised learning for geological sequences and presents the research framework through defined aims, questions, hypotheses and objectives. The chapter concludes with scope, limitations and expected contributions.
+
+\textbf{Chapter 2} provides comprehensive analysis of machine learning applications in lithology classification across supervised, semi-supervised and self-supervised learning paradigms. It examines well log data characteristics, existing SSL approaches and identifies three fundamental problems which are inadequate pretext task design, domain-agnostic masking strategies and architectural limitations. The chapter establishes the research gap and contribution framework.
+
+\textbf{Chapter 3} presents the systematic four-experiment approach designed to address identified research gaps. It details data acquisition and preprocessing, self-supervised pretext task design, experimental investigation through controlled experiments and comprehensive performance assessment framework. The methodology includes a 24-month research timeline with clear milestones.
+
+Future chapters will include experimental results and analysis, discussion and interpretation and conclusion with future work recommendations.
